@@ -4,7 +4,11 @@
 using namespace std;
 using namespace cv;
 
-void stereoSearch(Mat& im1, Mat& im2) {
+void rectifyImages(Mat& imL, Mat& imR) {
+
+}
+
+void stereoSearch(Mat& imL, Mat& imR) {
 
 }
 
@@ -12,6 +16,9 @@ int main() {
     Mat imgLeft = imread("/images/left.jpg", IMREAD_COLOR);
     Mat imgRight = imread("/images/right.jpg", IMREAD_COLOR);
 
+    rectifyImages(imgLeft, imgRight);
+
+    stereoSearch(imgLeft, imgRight);
 
 
     return 0;
