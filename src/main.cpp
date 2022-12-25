@@ -13,8 +13,14 @@ void stereoSearch(Mat& imL, Mat& imR) {
 }
 
 int main() {
-    Mat imgLeft = imread("/images/left.jpg", IMREAD_COLOR);
-    Mat imgRight = imread("/images/right.jpg", IMREAD_COLOR);
+    Mat imgLeftCPU = imread("/images/left.jpg", IMREAD_GRAYSCALE);
+    Mat imgRightCPU = imread("/images/right.jpg", IMREAD_GRAYSCALE);
+
+    cuda::GpuMat imgLeft;
+    imgLeft.upload(imgLeftCPU);
+
+    cuda::GpuMat imgRight;
+    imgRight.upload(imgRightCPU);
 
     rectifyImages(imgLeft, imgRight);
 
