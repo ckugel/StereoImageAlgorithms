@@ -7,24 +7,19 @@
 
 #include <opencv2/opencv.hpp>
 
+// this is meant to be the "big" object that is a big graph where each node is a rgb value and
+struct
+
 class PointCloud {
 protected:
-    struct Point {
-        float x;
-        float y;
-        float z;
-        cv::Point& rgb;
-        /*// trade off 3 bytes of info in 2 but more time complexity
-        short r;
-        short g;
-        short b;*/
-    };
 
-    Point[] points;
+    std::vector<std::unique_ptr<cv::Point>>& points;
+    std::
 
 public:
     PointCloud();
-
+    ~PointCloud();
+    PointCloud copy();
 };
 
 

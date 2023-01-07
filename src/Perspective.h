@@ -6,25 +6,40 @@
 #define STEREOIMAGEALGORITHMS_PERSPECTIVE_H
 
 #include "PointCloud.h"
+#include "BotPosition.h"
 
+// most of this is for debugging
 class Perspective {
 protected:
     // 3D coordinates of the point cloud image taken
-    double xTaken;
-    double yTaken;
-    double zTaken;
-    // 4 years later still using Eastan's elite dangerous terms for angle in space
-    double pitch;
-    double yaw;
-    double roll;
+    const double xTaken;
+    const double yTaken;
+    const double zTaken;
+    // 4 years later still using Eastan's elite dangerous terms for angles in space
+    const double pitch;
+    const double yaw;
+    const double roll;
 
-    PointCloud& pointCloud;
+    // Oddio I wish c++ had a borrow checker
+    std::shared_ptr<PointCloud> pointCloud;
 
     void serialize();
 public:
     static void loadFromFile();
-    Perspective();
-    ~Perspective();
+    Perspective(cv::Mat reconstructedImage, double time, PointCloud* ptcld, BotPosition& botPosition);
+    Perspective copy();
+
+    double getXTaken() const;
+
+    double getYTaken() const;
+
+    double getZTaken() const;
+
+    double getPitch() const;
+
+    double getYaw() const;
+
+    double getRoll() const;
 };
 
 

@@ -3,3 +3,6 @@
 //
 
 #include "PointCloud.h"
+PointCloud PointCloud::copy() {
+
+}

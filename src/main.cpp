@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 #include <opencv2/opencv.hpp>
 #include <opencv2/cudastereo.hpp>
 
@@ -60,8 +61,21 @@ int main() {
 
     imshow("Output 3D", output);
 
+    time_t t = std::time(nullptr);
+    string dt = ctime(&t);
+
+    imwrite("3D output " + dt, output);
+
     //     imagesStill = false;
     // }
 
     return 0;
+}
+
+/*
+ * remove the field from the point cloud using constant known about the field
+ * For FRC
+*/
+void removeFieldFromPC() {
+
 }
