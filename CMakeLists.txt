@@ -11,7 +11,7 @@ enable_testing()
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-add_executable(StereoAlgorithms src/main.cpp)
+add_executable(StereoAlgorithms src/main.cpp src/Perspective.cpp src/Perspective.h src/PointCloud.cpp src/PointCloud.h)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
