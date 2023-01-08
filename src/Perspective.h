@@ -23,10 +23,11 @@ protected:
     // Oddio I wish c++ had a borrow checker
     std::shared_ptr<PointCloud> pointCloud;
 
-    void serialize();
 public:
-    static void loadFromFile();
-    Perspective(cv::Mat reconstructedImage, double time, PointCloud* ptcld, BotPosition& botPosition);
+    void serialize();
+    static Perspective loadFromFile();
+
+    Perspective(cv::Mat reconstructedImage, double time, std::shared_ptr<PointCloud> ptcld, BotPosition& botPosition);
     Perspective copy();
 
     double getXTaken() const;

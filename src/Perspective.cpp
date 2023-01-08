@@ -10,7 +10,7 @@ void Perspective::serialize() {
 
 }
 
-void Perspective::loadFromFile() {
+Perspective Perspective::loadFromFile() {
 
 }
 

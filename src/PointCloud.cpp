@@ -6,3 +6,10 @@
 PointCloud PointCloud::copy() {
 
 }
+
+PointCloud::PointCloud() {
+
+
+}
+
+

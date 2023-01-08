@@ -7,18 +7,22 @@
 
 #include <opencv2/opencv.hpp>
 
-// this is meant to be the "big" object that is a big graph where each node is a rgb value and
-struct
 
+struct polarCoord {
+    double thetaY;
+    double thetaX;
+    double magnitude;
+};
+
+// this is meant to be the "big" object that is a big graph where each node is a rgb value and
+// graph
 class PointCloud {
 protected:
-
-    std::vector<std::unique_ptr<cv::Point>>& points;
-    std::
+    std::vector<std::unique_ptr<cv::Point>> points;
+    std::vector<std::vector<polarCoord>> adjacencyMatrix;
 
 public:
     PointCloud();
-    ~PointCloud();
     PointCloud copy();
 };
 
