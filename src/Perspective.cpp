@@ -14,9 +14,9 @@ Perspective Perspective::loadFromFile() {
 
 }
 
-Perspective::Perspective(cv::Mat reconstructedImage, double time, std::shared_ptr<PointCloud> ptcld, BotPosition& botPosition) {
+Perspective::Perspective(cv::Mat reconstructedImage, double time, std::shared_ptr<PointCloud> ptcld, BotPosition botPosition) {
     pointCloud = ptcld;
-
+    this->botPosition = botPosition;
 }
 
 Perspective Perspective::copy() {
@@ -27,25 +27,25 @@ Perspective Perspective::copy() {
 
 
 double Perspective::getXTaken() const {
-    return xTaken;
+    return botPosition.xTaken;
 }
 
 double Perspective::getYTaken() const {
-    return yTaken;
+    return botPosition.yTaken;
 }
 
 double Perspective::getZTaken() const {
-    return zTaken;
+    return botPosition.zTaken;
 }
 
 double Perspective::getPitch() const {
-    return pitch;
+    return botPosition.pitch;
 }
 
 double Perspective::getYaw() const {
-    return yaw;
+    return botPosition.yaw;
 }
 
 double Perspective::getRoll() const {
-    return roll;
+    return botPosition.roll;
 }
